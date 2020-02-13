@@ -33,7 +33,7 @@ class SignUp extends React.Component {
         try {
             const { user } = await auth.createUserWithEmailAndPassword(email, password);
             
-           await createUserProfileDocument(user, {displayName});
+            await createUserProfileDocument(user, {displayName});
 
            this.setState({
             displayName: '',
@@ -43,6 +43,14 @@ class SignUp extends React.Component {
         });
 
         } catch (error) {
+
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            if (errorCode === 'auth/weak-password') {
+                alert('The password is too weak.');
+              } else {
+                alert(errorMessage);
+              }
             console.log(error)
         }          
         

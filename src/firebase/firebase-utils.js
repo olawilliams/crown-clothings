@@ -37,7 +37,6 @@ const firebaseConfig = {
     }
 
     return userRef;
-    // console.log(snapShot);
 
   }
 
@@ -48,7 +47,7 @@ const firebaseConfig = {
   
   const provider = new firebase.auth.GoogleAuthProvider();
 
-//   provider.setCustomParameters({prompt: 'select_account'});
+  provider.setCustomParameters({prompt: 'select_account'});
   export const signInWithGoogle = () => auth.signInWithPopup(provider);
   
     export default firebase;
