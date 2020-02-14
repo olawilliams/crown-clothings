@@ -95,7 +95,7 @@ class SignUp extends React.Component {
                     required
                     />
                     <CustomButton type='submit'>
-                        Sign Up
+                        sign up
                     </CustomButton>
 
                 </form>
