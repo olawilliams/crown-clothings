@@ -52,7 +52,7 @@ class App extends React.Component  {
         </Switch> 
       </div>
     );
-  }
+  } 
  
 }
 
@@ -61,7 +61,7 @@ const mapStateToProps = ({ user }) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: userName => dispatch(setCurrentUser(userName))
+  setCurrentUser: user => dispatch(setCurrentUser(user))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
