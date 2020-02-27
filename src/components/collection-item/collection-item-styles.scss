@@ -19,12 +19,13 @@
       opacity: 0.7;
       position: absolute;
       top: 255px;
-      // display: none;
+      display: none;
     }
 
     &:hover {
       .image {
         opacity: 0.7;
+        display: flex;
       }
       .custom-button {
         opacity: 0.5px;
