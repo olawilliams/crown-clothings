@@ -2,7 +2,7 @@ import React from 'react';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import CartIcon from '../cart-icon/cart-icon-component';
 import CartDropdown from '../cart-dropdown/cart-dropdown-component';
-import { Link } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import { selectCartHidden } from '../../redux/cart/cart-selector';
 import { selectCurrentUser } from '../../redux/user/user-selector';
@@ -10,21 +10,27 @@ import { createStructuredSelector } from 'reselect';
 
 
 import { auth } from '../../firebase/firebase-utils';
-import './header-styles.scss';
+
+import { 
+    HeaderContainer, 
+    LogoContainer, 
+    OptionsContainer, 
+    OptionStyle } 
+        from './header-styled-component';
 
 const Header = ({ currentUser, hidden }) => (
-    <div className='header'>
-        <Link className='logo-container' to='/'> 
+    <HeaderContainer>
+        <LogoContainer to='/'> 
              <Logo className='logo' />
-        </Link>
-        <div className='options'>
-            <Link className='option' to='/shop'> SHOP</Link>
-            <Link className='option' to='/contact'> CONTACT</Link>
+        </LogoContainer>
+        <OptionsContainer>
+            <OptionStyle to='/shop'> SHOP</OptionStyle>
+            <OptionStyle to='/contact'> CONTACT</OptionStyle>
             {
                 currentUser ?
-                <div className='option' onClick={() => auth.signOut()}>SIGN OUT</div>
+                <OptionStyle as='div' onClick={() => auth.signOut()}>SIGN OUT</OptionStyle>
                 :
-                <Link className='option' to='/signin' >SIGN IN</Link>
+                <OptionStyle to='/signin' >SIGN IN</OptionStyle>
             }
             <CartIcon />
             {
@@ -33,9 +39,9 @@ const Header = ({ currentUser, hidden }) => (
                 
             }
             
-        </div>
+            </OptionsContainer>
         
-    </div>
+        </HeaderContainer>
 )
 
 const mapStateToProps = createStructuredSelector({

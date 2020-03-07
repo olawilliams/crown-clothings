@@ -13,9 +13,6 @@ import { withRouter } from 'react-router-dom';
 
 import './cart-dropdown-styles.scss';
 
-
-
-
 const CartDropdown = ({ cartItems, history, dispatch }) => (
     <div className='cart-dropdown'>
         <div className='cart-items'>

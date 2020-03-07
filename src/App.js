@@ -13,7 +13,10 @@ import { auth, createUserProfileDocument } from './firebase/firebase-utils';
 
 import { connect } from 'react-redux';
 
+
 import { setCurrentUser } from './redux/user/user-action';
+
+import { createStructuredSelector } from 'reselect';
 
 import './App.css';
 class App extends React.Component  {
@@ -22,7 +25,7 @@ class App extends React.Component  {
 
   componentDidMount() {
     
-    const { setCurrentUser } = this.props;
+    const { setCurrentUser} = this.props;
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged( async userAuth => {
       if (userAuth) {
@@ -33,8 +36,6 @@ class App extends React.Component  {
                 id: snapShot.id,
                 ...snapShot.data()
                });          
-         
-          console.log(this.state);
         });
       }
       setCurrentUser(userAuth);
@@ -64,8 +65,9 @@ class App extends React.Component  {
  
 }
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser
+const mapStateToProps = createStructuredSelector({
+  currentUser: setCurrentUser,
+
 })
 
 const mapDispatchToProps = dispatch => ({
