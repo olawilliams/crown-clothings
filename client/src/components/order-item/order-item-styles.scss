@@ -1,9 +1,12 @@
 .order-item {
     display: flex;
     justify-content: space-between;
+    width: 600px;
     border-bottom: 0.1px solid grey;
 
-    
+    @media only screen and (max-width: 650px) {
+        width: 400px;     
+    }
 
     .image-container {
         width: 25%;
