@@ -1,6 +1,18 @@
 body {
     font-family: 'Open Sans Condensed';
-    padding: 20px 60px; 
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    min-width: fit-content;
+  
+}
+
+
+
+.app .spinner {
+    position: relative;
+    left: 35%;
+    top: 40%;
 }
 
 a {
@@ -12,3 +24,4 @@ a {
 * {
     box-sizing: border-box;
 }
+

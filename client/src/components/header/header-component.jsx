@@ -2,46 +2,46 @@ import React from 'react';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import CartIcon from '../cart-icon/cart-icon-component';
 import CartDropdown from '../cart-dropdown/cart-dropdown-component';
-
 import { connect } from 'react-redux';
 import { selectCartHidden } from '../../redux/cart/cart-selector';
 import { selectCurrentUser } from '../../redux/user/user-selector';
 import { createStructuredSelector } from 'reselect';
-
+import { Link } from 'react-router-dom'
+import './header-styles.scss'
 import { signOutStart } from '../../redux/user/user-action';
 
-import { 
-    HeaderContainer, 
-    LogoContainer, 
-    OptionsContainer, 
-    OptionStyle } 
-        from './header-styled-component';
 
 const Header = ({ currentUser, hidden, signOutStart }) => (
-    <HeaderContainer>
-        <LogoContainer to='/'> 
-             <Logo className='logo' />
-        </LogoContainer>
-        <OptionsContainer>
-            <OptionStyle to='/shop'> SHOP</OptionStyle>
-            <OptionStyle to='/contact'> CONTACT</OptionStyle>
+    <div className='header-container'>
+        
+            <Link to='/' className="container">
+                <div className='logo-container'>< Logo  /> </div>  
+                 <span className="store-name">CROWN Clothing Store</span>
+             </Link>  
+             
+        
+
+        <div className='options'>
+            <Link className='option' to='/shop'>SHOP </Link>
+            <Link className='option' to='/ordersearch'>ORDERS </Link>
             {
                 currentUser ?
-                <OptionStyle as='div' onClick={signOutStart}>SIGN OUT</OptionStyle>
-                :
-                <OptionStyle to='/signin' >SIGN IN</OptionStyle>
+                <Link className='option' to='/account'>ACCOUNT </Link> 
+                : null
             }
-            <CartIcon />
-            {
-                hidden ? <CartDropdown />
-               : null 
-                
-            }
-            
-            </OptionsContainer>
-        
-        </HeaderContainer>
-)
+            { currentUser  ?
+             <div className='option' onClick={signOutStart}>SIGN OUT </div> 
+             :
+             <Link className='option' to='/signin' >SIGN IN</Link>
+          }
+          <div className="option"><CartIcon  /></div>
+
+        </div>
+          {
+              hidden ? null : <CartDropdown />
+          }
+    </div>
+);
 
 const mapStateToProps = createStructuredSelector({
     currentUser: selectCurrentUser,

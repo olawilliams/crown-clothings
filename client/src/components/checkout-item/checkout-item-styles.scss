@@ -6,6 +6,10 @@
     padding: 15px 0;
     font-size: 20px;
     align-items: center;
+
+    @media only screen and (max-width: 650px) {
+      font-size: 16px;
+    }
   
     .image-container {
       width: 23%;
@@ -16,10 +20,23 @@
         height: 100%;
       }
     }
-    .name,
+    .name {
+      width: 22%;
+
+      &.image {
+        @media only screen and (max-width: 650px) {
+          width: 30%;
+        }
+      }
+    }
     .quantity,
     .price {
       width: 23%;
+
+      @media only screen and (max-width: 650px) {
+        width: 22%;
+        text-align: center;
+      }
     }
   
     .quantity {
@@ -37,6 +54,11 @@
     .remove-button {
       padding-left: 12px;
       cursor: pointer;
+
+      @media only screen and (max-width: 650px) {
+        padding-left: 2px;
+        width: 3%;
+      }
     }
   }
   

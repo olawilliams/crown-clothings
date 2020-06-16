@@ -19,6 +19,11 @@ export const clearItem = (item) => ({
     payload: item
 });
 
-export const clearCart = () => ({
-    type: cartActionType.CLEAR_CART
+export const getToken = token => ({
+    type: cartActionType.GET_TOKEN,
+    payload: token
+});
+
+export const setPayment = () => ({
+    type: cartActionType.SET_PAYMENT
 });

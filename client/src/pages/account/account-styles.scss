@@ -1,0 +1,85 @@
+.account {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    width: 680px;
+    left: 30%;
+
+    @media only screen and (max-width: 650px) {
+        width: 100%;
+        left: 1%;
+      }
+
+      .buttons{
+        width: 400px;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+        margin: auto;
+
+       
+       @media only screen and (max-width: 650px) {
+          width: 330px;
+          justify-content: space-evenly; 
+          margin-bottom: 20px;
+       
+      }
+      
+        button {
+         
+          &:last-child{
+            @media only screen and (max-width: 650px) {
+            
+              
+            }
+          }
+          @media only screen and (max-width: 650px) {
+            padding: 0;
+           
+            font-size: 14px;
+          }
+        }
+      }
+    
+    .order-history {
+      display: flex;
+      flex-direction: column;
+
+      @media only screen and (max-width: 650px) {
+        width: 100%;  
+      }
+
+      .heading {
+          text-align: center; 
+          font-size: 30px;
+      }
+
+     
+
+      .history {
+          margin-top: auto;
+          .details {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            .detail {
+                font-weight: bold;
+              
+            }
+
+            .detailed {
+                font-weight: lighter;
+                padding: 10px auto;
+
+                  
+                &:first-child {
+                  cursor: pointer;
+                  color: green;
+                }
+               
+            }
+          }
+      }
+    }
+}

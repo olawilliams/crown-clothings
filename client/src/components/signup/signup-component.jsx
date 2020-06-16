@@ -70,7 +70,7 @@ const SignUp = ({ signUpStart }) => {
                     required
                     />
                     <CustomButton type='submit'>
-                        sign up
+                        create account
                     </CustomButton>
 
                 </form>

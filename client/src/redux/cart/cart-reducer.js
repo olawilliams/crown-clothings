@@ -2,9 +2,13 @@ import cartActionType from './cart-actiontype';
 import { addItemToCart, removeItemFromCart } from './cart-utils';
 
 const INITIAL_STATE = {
-    hidden: false,
-    cartItems: []
+    hidden: true,
+    cartItems: [],
+    token: [],
+    paid: false
 };
+
+
 
 const cartReducer = ( state = INITIAL_STATE, action ) => {
     switch(action.type) {
@@ -29,10 +33,19 @@ const cartReducer = ( state = INITIAL_STATE, action ) => {
                 cartItems: state.cartItems.filter(cartItem =>
                     cartItem.id !== action.payload.id)
             };
-        case cartActionType.CLEAR_CART:
+
+        case cartActionType.GET_TOKEN:
             return {
                 ...state,
-                cartItems: []
+                cartItems: [],
+                paid: true,
+                token: [...state.token, action.payload]
+            }
+
+        case cartActionType.SET_PAYMENT:
+            return {
+                ...state,
+                paid: false
             }
         default:
          return state;

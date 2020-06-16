@@ -9,7 +9,12 @@
     background-color: white;
     top: 90px;
     right: 40px;
-    z-index: 5;
+    z-index: 10;
+
+    @media only screen and (max-width: 650px) {
+     top: 130px;
+      
+   }
 
     .empty-message {
       font-size: 18px;

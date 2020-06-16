@@ -18,7 +18,8 @@ export const shopReducer = (state= INITIAL_STATE, action ) => {
             return {
                 ...state,
                 isFetching : false,
-                collections : action.payload
+                collections : action.payload,
+                error: undefined
             };
         case ShopActionTypes.FETCH_COLLECTIONS_FAILURE :
             return {

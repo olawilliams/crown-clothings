@@ -25,3 +25,33 @@ export const selectCartTotal = createSelector(
     accumulator + cartItem.quantity * cartItem.price
     , 0)
  );
+
+ export const selectToken = createSelector(
+     selectCart,
+     cart => cart.token[cart.token.length -1]
+ );
+
+ export const selectPaid = createSelector(
+     selectCart,
+     cart => cart.paid
+ );
+
+ export const selectTokenOrderItems = createSelector(
+     selectCart,
+     cart => cart.token
+ );
+
+ const convertTokenArrayToObject = createSelector(
+     selectTokenOrderItems,
+     token => token.reduce((acc, order) => {
+        acc[order.created] = order;
+        return acc;
+     }, {})
+ );
+
+ export const selectTokenForOrderDetails = orderIdUrlParam => createSelector(
+     convertTokenArrayToObject,
+     token => token[orderIdUrlParam]
+ );
+
+

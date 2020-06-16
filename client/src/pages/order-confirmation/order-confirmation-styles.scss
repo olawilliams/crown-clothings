@@ -1,0 +1,16 @@
+.order-confirmation-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 30%;
+    width: 600px;
+    justify-content: center;
+    
+    .top-message {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+    }
+}

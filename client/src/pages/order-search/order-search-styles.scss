@@ -1,0 +1,53 @@
+.wrapper {
+
+      width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-top: .5px solid white;
+    padding: 20px;
+    
+    @media only screen and (max-width: 650px) {
+      width: 100%;
+      
+     
+  }
+
+  .order-search {
+      width: 300px;
+      margin: auto;
+
+
+
+    .title {
+        font-weight: lighter;  
+        text-align: center;
+    }
+
+    button {
+      margin-left: 25%;
+      
+    }
+  }
+
+    .order-item-wrapper {
+      display: flex;
+      flex-direction: column;
+     margin-top: 20px;   
+     position: relative;
+     left: 28%;  
+      width: 600px;
+      justify-content: center;
+
+      
+    @media only screen and (max-width: 650px) {
+      max-width: 400px;
+      left: 0%;
+      
+     
+  }
+
+      .no-order {
+       text-align: center;
+      }
+    }
+  }

@@ -1,0 +1,50 @@
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.1px solid grey;
+
+    
+
+    .image-container {
+        width: 25%;
+        padding: 10px;
+      
+        img {
+            height: 100%;
+            width: 100%;
+
+            @media only screen and (max-width: 650px) {
+                height: 100%;
+                width: 100%;
+               
+            }
+        }
+    }
+
+    .name {
+        width: 25%;
+        margin: 70px auto;
+        padding: 15px;
+
+        @media only screen and (max-width: 650px) {
+           margin: 35px auto;
+           padding: 7.5px;
+           
+        }
+    }
+    
+    
+    .quantity,
+    .price { 
+        width: 15%;
+        padding: 15px;
+        margin: 70px auto;
+
+        @media only screen and (max-width: 650px) {
+            margin: 35px auto;
+            padding: 7.5px;
+            
+         }
+    }
+
+}

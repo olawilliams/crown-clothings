@@ -1,16 +1,18 @@
 import React from 'react';
 import Directory from '../../components/Directory/Directory-component';
 
-import HomeStyled from './homepage-styled-component'
+import './homepage-styles.scss'
 
 
-const Homepage = () => {
+const Homepage = ({ history }) => {
     return (
-        <HomeStyled>
-            <Directory />
-        </HomeStyled>
-           
-        
+        <div className="homepage">   
+            <div className="new">
+                <p>NEW DESIGNS IN EVERY COLLECTION</p>
+            </div>
+                <Directory />
+        </div>
+         
     );
 }
 
