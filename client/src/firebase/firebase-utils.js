@@ -43,6 +43,32 @@ const firebaseConfig = {
 
   }
 
+  export const getUserCartRef = async userId => {
+    const cartRef = firestore.collection('carts').where('userId', "==", userId);
+
+    const cartSnapshot = await cartRef.get();
+    if(cartSnapshot.empty) {
+      const cartDocRef = firestore.collection('carts').doc();
+       await cartDocRef.set({userId, cartItem: []});
+       return cartDocRef
+    } else {
+      return cartSnapshot.docs[0].ref
+    }
+  };
+
+  export const getUserOrderRef = async userId => {
+    const orderRef = firestore.collection('orders').where('userId', "==", userId);
+    const orderSnapshot =  await orderRef.get();
+
+    if(orderSnapshot.empty) {
+      const orderDocRef = firestore.collection('orders').doc();
+      orderDocRef.set({ userId, order: []})
+      return orderDocRef
+    } else {
+      return orderSnapshot.docs[0].ref
+    }
+  }
+
   export const addCollectionAndDocument = async (CollectionKey, objectToAdd) => {
     const collectionRef= firestore.collection(CollectionKey);
 

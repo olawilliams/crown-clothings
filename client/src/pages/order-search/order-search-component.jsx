@@ -7,7 +7,7 @@ import OrderResult from '../../components/order-result/order-result-component'
 
 import { connect} from 'react-redux'
 import { createStructuredSelector} from 'reselect';
-import { selectTokenOrderItems } from '../../redux/cart/cart-selector'
+import { selectTokenOrderItems } from '../../redux/cart/cart-selector';
 
 const OrderSearch = ({ getOrderItems }) =>  {
     const [credentials, setCredentials] = useState({ email: '', orderId: ''});

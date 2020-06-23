@@ -5,7 +5,8 @@ import Header from './components/header/header-component';
 import Footer from './components/footer/footer-component';
 import SpringSales from './components/spring-sales/spring-sales-component';
 import Spinners from './components/spinner/spinner';
-import ErrorBoundary from './components/errorBoundary/errorboundary-component'
+import ErrorBoundary from './components/errorBoundary/errorboundary-component';
+import CartAlert from './components/cart-alert/cart-alert-component'
 
 import { connect } from 'react-redux';
 
@@ -38,6 +39,7 @@ const App = ({checkUserSession, currentUser, paid }) =>  {
 
     return (
       <div className='App'>
+        {/* <CartAlert /> */}
         <Header  />
         <SpringSales />
         <ErrorBoundary>
@@ -52,7 +54,11 @@ const App = ({checkUserSession, currentUser, paid }) =>  {
                   : <CheckoutPage />
                 }
               />
-              <Route exact path='/ordersearch' component={OrderSearch}/>
+              <Route exact path='/ordersearch' render={() => 
+               !currentUser 
+                  ? <Redirect to='/signin' />
+                  : <OrderSearch />}
+              />
               <Route exact path='/orderdetails/:orderId' component={OrderDetails}/>
               <Route exact path='/account' component={Account}/>
               <Route exact path='/signin' render={() => 

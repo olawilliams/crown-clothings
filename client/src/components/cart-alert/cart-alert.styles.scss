@@ -1,0 +1,25 @@
+.cart-alert {
+    width: 100%;
+    color: white;
+    background: green;
+    animation-name: alert;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    font-size: 16px;
+   
+    @keyframes alert {
+        0% {
+            opacity: 0;
+            
+        }
+
+        25%{opacity: 0.25; }
+        50%{opacity: 0.5; }
+        25%{opacity: 0.75; }
+
+        100%{
+            opacity: 0;
+        }
+    }
+
+}
