@@ -11,7 +11,7 @@ import './header-styles.scss'
 import { signOutStart } from '../../redux/user/user-action';
 
 
-const Header = ({ currentUser, hidden, signOutStart }) => (
+const Header = ({ currentUser, hidden, signOutStart, history }) => (
     <div className='header-container'>
         
             <Link to='/' className="container">
@@ -30,7 +30,12 @@ const Header = ({ currentUser, hidden, signOutStart }) => (
                 : null
             }
             { currentUser  ?
-             <div className='option' onClick={signOutStart}>SIGN OUT </div> 
+             <Link className='option' to='/signin' onClick={() => {
+                 signOutStart() 
+                 console.log('signed out')
+                 
+                }}
+            >   SIGN OUT </Link> 
              :
              <Link className='option' to='/signin' >SIGN IN</Link>
           }
@@ -38,7 +43,7 @@ const Header = ({ currentUser, hidden, signOutStart }) => (
 
         </div>
           {
-              hidden ? null : <CartDropdown />
+              !hidden ? null : <CartDropdown />
           }
     </div>
 );

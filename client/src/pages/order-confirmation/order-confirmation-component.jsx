@@ -11,7 +11,6 @@ import { setPayment } from '../../redux/cart/cart-action'
 class OrderConfirmation extends React.Component {
   
 componentWillUnmount() {
-    console.log('unmount')
     const { setPayment } = this.props;
     setPayment()
 }

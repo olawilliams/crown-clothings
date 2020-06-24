@@ -3,7 +3,7 @@ import './account-details-styles.scss';
 
 const AccountDetails = ( { currentUser, accountDate}) =>{ 
     const { displayName, email, createdAt: { seconds }} = currentUser;
-    console.log(currentUser)
+   
 return (
     <div className="account-container">
             <p className='title'>Account Details</p>

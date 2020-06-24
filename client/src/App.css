@@ -2,6 +2,7 @@ body {
     font-family: 'Open Sans Condensed';
     padding: 0;
     margin: 0;
+    margin-right: -i5px;
     max-width: 100%;
     min-width: fit-content;
   

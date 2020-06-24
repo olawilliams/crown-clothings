@@ -1,6 +1,6 @@
 import React from 'react';
 import './account-styles.scss';
-
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { signOutStart } from '../../redux/user/user-action';
 import { selectTokenOrderItems } from '../../redux/cart/cart-selector';
@@ -74,7 +74,7 @@ return (
                 <CustomButton
                     onClick={() => {
                         signOut()
-                        history.push('/signin')
+                           
                     }}
                 >
                     SIGN OUT
@@ -101,4 +101,7 @@ const mapDispatchToProp = dispatch => ({
     signOut: () => dispatch(signOutStart())
 })
 
-export default connect(mapStateToProps, mapDispatchToProp)(Account);
+export default withRouter
+                (connect
+                    (mapStateToProps, mapDispatchToProp)
+                        (Account));

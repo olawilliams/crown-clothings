@@ -60,12 +60,20 @@ const App = ({checkUserSession, currentUser, paid }) =>  {
                   : <OrderSearch />}
               />
               <Route exact path='/orderdetails/:orderId' component={OrderDetails}/>
-              <Route exact path='/account' component={Account}/>
+              <Route exact path='/account' render={() => 
+                !currentUser 
+                  ? <Redirect  to='/signin'/>
+                  :<Account />
+              } />
               <Route exact path='/signin' render={() => 
                 currentUser  
                 ? <Redirect to='/'  /> 
                 : <SignInSignUp />} />
-                <Route exact path='/confirmation'  component={OrderConfirmation}/>
+                <Route exact path='/confirmation'  render={() => 
+                  !paid 
+                    ? <Redirect to='/account' />
+                    : <OrderConfirmation />
+                } />
             </Switch> 
           </Suspense>
          </ErrorBoundary>
