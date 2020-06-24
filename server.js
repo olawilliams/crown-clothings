@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
+const enforce = require('express-enforce-https')
+const compression = require('compression')
 
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
@@ -14,8 +16,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 
 app.use(cors());
+app.use(compression());
 
 if (process.env.NODE_ENV === 'production') {
+    app.use(enforce.HTTPS({ trustProtoHeader: true }))
     app.use(express.static(path.join(__dirname, 'client/build')));
 
     app.get('*', function(req, res) {
