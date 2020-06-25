@@ -39,7 +39,6 @@ const App = ({checkUserSession, currentUser, paid, isAdding , isAddingItem}) => 
 
   if(isAdding) {
     setTimeout(() => {
-      console.log('i am watching')
         isAddingItem()
     }, 2000); 
 }
