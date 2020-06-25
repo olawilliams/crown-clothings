@@ -54,4 +54,9 @@ export const selectCartTotal = createSelector(
      token => token[orderIdUrlParam]
  );
 
+ export const selectAddingItems = createSelector(
+     selectCart,
+     cart => cart.isAdding
+ )
+
 

@@ -7,6 +7,7 @@ import { getToken } from '../../redux/cart/cart-action';
 import axios from 'axios';
 
 const StripeCheckoutButton = ({ price, cartItems, getToken }) => {
+   
     const priceForStripe= price * 100;
     const publishableKey = 'pk_test_8NJurycMBAciBdliuXj9OUri00Et04EpfO';
 
@@ -34,7 +35,7 @@ const StripeCheckoutButton = ({ price, cartItems, getToken }) => {
             console.log( error);
         });
     }   
-    
+     
     return (
         <div>
             <StripeCheckout

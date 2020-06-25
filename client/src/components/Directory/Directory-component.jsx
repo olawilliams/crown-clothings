@@ -13,14 +13,11 @@ const Directory = ({ sections }) => (
                 <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} linkUrl={linkUrl} />
             ))
          }
-    </DirectoryStyled>
-        
-    
+    </DirectoryStyled>    
 );
 
 const mapStateToProps = createStructuredSelector({
     sections: selectDirectorySections
-})
-        
+});       
 
 export default connect(mapStateToProps)(Directory);

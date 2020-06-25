@@ -32,8 +32,6 @@ const Header = ({ currentUser, hidden, signOutStart, history }) => (
             { currentUser  ?
              <Link className='option' to='/signin' onClick={() => {
                  signOutStart() 
-                 console.log('signed out')
-                 
                 }}
             >   SIGN OUT </Link> 
              :
@@ -43,7 +41,7 @@ const Header = ({ currentUser, hidden, signOutStart, history }) => (
 
         </div>
           {
-              !hidden ? null : <CartDropdown />
+              hidden ? null : <CartDropdown />
           }
     </div>
 );

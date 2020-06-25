@@ -10,8 +10,6 @@ const INITIAL_STATE = {
     errorMessage: null
 };
 
-
-
 const cartReducer = ( state = INITIAL_STATE, action ) => {
     switch(action.type) {
         case cartActionType.TOGGLE_CART_HIDDEN :
@@ -23,7 +21,8 @@ const cartReducer = ( state = INITIAL_STATE, action ) => {
         case cartActionType.ADD_ITEM :
             return {
                 ...state,
-                cartItems: addItemToCart(state.cartItems, action.payload)
+                cartItems: addItemToCart(state.cartItems, action.payload),
+                isAdding: true
             };
 
         case cartActionType.REMOVE_ITEM :
@@ -76,6 +75,13 @@ const cartReducer = ( state = INITIAL_STATE, action ) => {
                 ...state,
                 paid: false
             }
+
+        case cartActionType.SET_IS_ADDING: {
+            return {
+                ...state,
+                isAdding: false
+            }
+        }
         default:
          return state;
     }

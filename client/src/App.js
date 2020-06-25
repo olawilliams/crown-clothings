@@ -12,7 +12,8 @@ import { connect } from 'react-redux';
 
 import { checkUserSession } from './redux/user/user-action';
 import { selectCurrentUser } from './redux/user/user-selector';
-import { selectPaid } from './redux/cart/cart-selector';
+import { selectPaid, selectAddingItems } from './redux/cart/cart-selector';
+import { isAddingItem } from './redux/cart/cart-action'
 import { createStructuredSelector } from 'reselect';
 
 
@@ -30,16 +31,22 @@ const OrderConfirmation = React.lazy(() => import('./pages/order-confirmation/or
 
 
 
-const App = ({checkUserSession, currentUser, paid }) =>  {
+const App = ({checkUserSession, currentUser, paid, isAdding , isAddingItem}) =>  {
 
   useEffect( () => {
     checkUserSession()
   }, [checkUserSession])
- 
+
+  if(isAdding) {
+    setTimeout(() => {
+      console.log('i am watching')
+        isAddingItem()
+    }, 2000); 
+}
 
     return (
       <div className='App'>
-        {/* <CartAlert /> */}
+        { isAdding ?  <CartAlert /> : null }
         <Header  />
         <SpringSales />
         <ErrorBoundary>
@@ -83,13 +90,14 @@ const App = ({checkUserSession, currentUser, paid }) =>  {
 }
 
 const mapDispatchToProps = dispatch => ({
-  checkUserSession: () => dispatch(checkUserSession())
+  checkUserSession: () => dispatch(checkUserSession()),
+  isAddingItem: () => dispatch(isAddingItem())
 })
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  paid: selectPaid
-
+  paid: selectPaid,
+  isAdding: selectAddingItems
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(App);

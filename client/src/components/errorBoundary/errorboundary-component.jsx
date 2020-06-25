@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './error-boundary-styles.scss'
 
 
 class ErrorBoundary extends React.Component {
@@ -17,7 +17,13 @@ class ErrorBoundary extends React.Component {
 
     render() {
         if(this.state.hasError) {
-           return  <h2>Something went wrong</h2>
+           return ( 
+           <div className="error-boundary">   
+              <img src='https://i.imgur.com/lKJiT77.png' alt="error-boundary"/>               
+                 <p>Something went wrong</p>
+           </div>
+           
+           )
         }
 
         return(

@@ -10,7 +10,31 @@
         width: 100%;
         left: 1%;
       }
+      .no-order {
+        text-align: center;
+        font-size: 25px;
+      }
 
+      .buttons{
+        width: 400px;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+        margin: auto;
+       
+       
+       @media only screen and (max-width: 650px) {
+          width: 350px;
+          margin-bottom: 20px;   
+      }
+      
+        button {
+          @media only screen and (max-width: 650px) {
+           padding: 0; 
+           width: 140px;  
+        }
+        }
+      }
     
     .order-history {
       display: flex;
@@ -55,14 +79,13 @@
        
        @media only screen and (max-width: 650px) {
           width: 350px;
-         padding-top: 20px;
           margin-bottom: 20px;   
       }
       
         button {
           @media only screen and (max-width: 650px) {
-           padding: 1px; 
-           width: 150px;  
+           padding: 0; 
+           width: 140px;  
         }
         }
       }
@@ -70,10 +93,6 @@
       .heading {
           text-align: center; 
           font-size: 30px;
-      }
-
-     
-
-      
+      }  
     }
 }

@@ -58,4 +58,8 @@ export const getOrderFromFirebase = orderItems => ({
 
 export const clearToken = () => ({
     type: cartActionType.CLEAR_TOKEN
+});
+
+export const isAddingItem = () => ({
+    type: cartActionType.SET_IS_ADDING
 })
